@@ -54,7 +54,7 @@
               <img
                 src="/public/images/sbn2024.png"
                 alt=""
-                class="h-full w-full object-fit"
+                class="h-full w-full object-scale-down"
               />
             </div>
           </div>
@@ -65,7 +65,7 @@
                   <a href="/src/index.html" class="font-jaro">Home</a>
                 </li>
                 <li>
-                  <a href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
+                  <a rel="noopener" href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
                 </li>
                 <li>
                   <a href="/src/spelling-bee-nepal.html" class="font-jaro"
@@ -86,7 +86,7 @@
             </div>
 
             <span class="lg:hidden">
-              <button
+              <button title="open-mobile-nav"
                 id="open-mobile-nav"
                 class="bg-transparent text-white cursor-pointer"
               >
@@ -138,7 +138,7 @@
                   </div>
                 </div>
                 <span id="close-mobile-nav" class="overflow-hidden">
-                  <button
+                  <button title="Twitter"
                     class="border-none bg-white cursor-pointer text-xl text-red-500"
                   >
                   <i class="fa-solid fa-xmark"></i>
@@ -151,7 +151,7 @@
                     <a href="/src/index.html" class="font-jaro">Home</a>
                   </li>
                   <li>
-                    <a href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
+                    <a rel="noopener" href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
                   </li>
                   <li>
                     <a href="/src/spelling-bee-nepal.html" class="font-jaro">Spelling Bee Nepal</a>
@@ -171,7 +171,7 @@
         </div>
       </div>
 
-      <div class="border-x-0 border-t-0 border-b border-white w-full h-[90vh] 2xl:h-[75vh] bg-bee-gradient flex flex-col z-20">
+      <div class="border-x-0 border-t-0 border-b border-white w-full h-[45vh] md:h-[65vh] 2xl:h-[75vh] bg-bee-gradient flex flex-col z-20">
         <div
           class="relative flex-grow overflow-hidden pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36"
         >
@@ -310,10 +310,10 @@
                 Winners of Spelling Bee Nepal 2023
               </h1>
             </div>
-            <select
+            <select name="year" title="select-year"
               class="w-max form-select block mt-1 rounded-md shadow-sm border border-[#FFD50D] text-neutral-700"
             >
-              <option disabled selected>Choose Year</option>
+              <option selected>Choose Year</option>
               <option>2024</option>
               <option>2023</option>
               <option>2022</option>

@@ -815,6 +815,10 @@ select {
   bottom: 0px;
 }
 
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -823,52 +827,20 @@ select {
   top: 0px;
 }
 
-.bottom-10 {
-  bottom: 2.5rem;
-}
-
 .z-10 {
   z-index: 10;
 }
 
-.z-\[100\] {
-  z-index: 100;
-}
-
-.z-\[999\] {
-  z-index: 999;
+.z-20 {
+  z-index: 20;
 }
 
 .z-50 {
   z-index: 50;
 }
 
-.z-0 {
-  z-index: 0;
-}
-
-.z-\[500\] {
-  z-index: 500;
-}
-
-.-z-\[500\] {
-  z-index: -500;
-}
-
-.z-\[99\] {
-  z-index: 99;
-}
-
-.-z-10 {
-  z-index: -10;
-}
-
-.-z-20 {
-  z-index: -20;
-}
-
-.z-20 {
-  z-index: 20;
+.z-\[100\] {
+  z-index: 100;
 }
 
 .order-1 {
@@ -901,6 +873,10 @@ select {
   margin-bottom: 0.5rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .mt-0 {
   margin-top: 0px;
 }
@@ -923,10 +899,6 @@ select {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 
 .line-clamp-4 {
@@ -991,6 +963,10 @@ select {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-\[45vh\] {
+  height: 45vh;
 }
 
 .max-h-0 {
@@ -1172,10 +1148,6 @@ select {
   border-width: 2px;
 }
 
-.border-0 {
-  border-width: 0px;
-}
-
 .border-x-0 {
   border-left-width: 0px;
   border-right-width: 0px;
@@ -1285,6 +1257,11 @@ select {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.object-scale-down {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
 }
 
 .p-1 {
@@ -1533,12 +1510,12 @@ select {
 }
 
 @media (min-width: 640px) {
-  .sm\:right-5 {
-    right: 1.25rem;
-  }
-
   .sm\:bottom-0 {
     bottom: 0px;
+  }
+
+  .sm\:right-5 {
+    right: 1.25rem;
   }
 
   .sm\:h-24 {
@@ -1566,6 +1543,18 @@ select {
 
   .md\:h-96 {
     height: 24rem;
+  }
+
+  .md\:h-\[75vh\] {
+    height: 75vh;
+  }
+
+  .md\:h-\[65vh\] {
+    height: 65vh;
+  }
+
+  .md\:h-\[655vh\] {
+    height: 655vh;
   }
 
   .md\:grid-cols-2 {
@@ -1650,20 +1639,8 @@ select {
     height: 550px;
   }
 
-  .\32xl\:h-\[\] {
-    height: ;
-  }
-
   .\32xl\:h-\[75vh\] {
     height: 75vh;
-  }
-
-  .\32xl\:h-\[100vh\] {
-    height: 100vh;
-  }
-
-  .\32xl\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .\32xl\:px-36 {
