@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $(".owl-carousel-sponsors").owlCarousel({
-      loop: false,
+      loop: true,
       nav: true,
       dots: false,
       margin: 30,
