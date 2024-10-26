@@ -25,11 +25,11 @@
     <script src="/public/js/script.js" defer></script>
     <script src="/public/js/alpine.js" defer></script>
 
-        <!-- alpine sources  -->
-        <script
-        defer
-        src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"
-      ></script>
+    <!-- alpine sources  -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"
+    ></script>
 
     <!-- font awesome icon package -->
     <script
@@ -39,33 +39,128 @@
     <!-- font awesome icon package -->
   </head>
   <body class="h-full w-full flex flex-col min-h-screen">
-    <div>
-      <nav id="navbar" class="bg-bee-gradient py-3 px-3 lg:px-10">
-        <div class="flex justify-between items-center">
-          <div class="flex gap-3">
-            <div class="h-20 w-20">
-              <img
-                src="/public/images/Evention_LOGO.png"
-                alt=""
-                class="h-full w-full object-fit"
-              />
-            </div>
-            <div class="h-20 w-20">
-              <img
-                src="/public/images/sbn2024.png"
-                alt=""
-                class="h-full w-full object-fit"
-              />
-            </div>
+    <nav id="navbar" class="bg-bee-gradient py-3 px-3 lg:px-10">
+      <div class="flex justify-between items-center">
+        <div class="flex gap-3">
+          <div class="h-20 w-20">
+            <img
+              src="/public/images/Evention_LOGO.png"
+              alt=""
+              class="h-full w-full object-fit"
+            />
           </div>
-          <div class="flex items-center gap-5">
-            <div class="hidden lg:inline-block gap-2">
+          <div class="h-20 w-20">
+            <img
+              src="/public/images/sbn2024.png"
+              alt=""
+              class="h-full w-full object-fit"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-5">
+          <div class="hidden lg:inline-block gap-2">
+            <ul class="list-none text-sm flex flex-col lg:flex-row gap-5">
+              <li>
+                <a href="/src/index.html" class="font-jaro">Home</a>
+              </li>
+              <li>
+                <a
+                  href="https://evention.top/spellingbee"
+                  target="_blank"
+                  class="font-jaro"
+                  >Evention Master</a
+                >
+              </li>
+              <li>
+                <a href="/src/spelling-bee-nepal.html" class="font-jaro"
+                  >Spelling Bee Nepal</a
+                >
+              </li>
+              <li>
+                <a href="/src/rules-regulations.html" class="font-jaro"
+                  >Rules and Regulation</a
+                >
+              </li>
+              <li>
+                <a href="/src/upcoming-events.html" class="font-jaro"
+                  >Upcoming Events</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <span class="lg:hidden">
+            <button
+              id="open-mobile-nav"
+              class="bg-transparent text-white cursor-pointer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg></button
+          ></span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="lg:hidden">
+      <div
+        id="mobile-sidebar"
+        class="fixed top-0 z-[100] overflow-hidden h-screen w-full bg-black bg-opacity-50"
+      >
+        <div class="flex w-full h-full">
+          <div
+            class="h-full w-80 bg-white px-3 pt-3 pb-5 flex flex-col gap-5 overflow-y-auto"
+          >
+            <div
+              class="pb-2 flex justify-between items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50"
+            >
+              <div class="flex gap-3">
+                <div class="h-20 w-20">
+                  <img
+                    src="/public/images/Evention_LOGO.png"
+                    alt=""
+                    class="h-full w-full object-fit"
+                  />
+                </div>
+                <div class="h-20 w-20">
+                  <img
+                    src="/public/images/sbn2024.png"
+                    alt=""
+                    class="h-full w-full object-fit"
+                  />
+                </div>
+              </div>
+              <span id="close-mobile-nav" class="overflow-hidden">
+                <button
+                  class="border-none bg-white cursor-pointer text-xl text-red-500"
+                >
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </span>
+            </div>
+            <div class="flex flex-col gap-5 justify-between">
               <ul class="list-none text-sm flex flex-col lg:flex-row gap-5">
                 <li>
                   <a href="/src/index.html" class="font-jaro">Home</a>
                 </li>
                 <li>
-                  <a href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
+                  <a
+                    href="https://evention.top/spellingbee"
+                    target="_blank"
+                    class="font-jaro"
+                    >Evention Master</a
+                  >
                 </li>
                 <li>
                   <a href="/src/spelling-bee-nepal.html" class="font-jaro"
@@ -84,93 +179,14 @@
                 </li>
               </ul>
             </div>
-
-            <span class="lg:hidden">
-              <button
-                id="open-mobile-nav"
-                class="bg-transparent text-white cursor-pointer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg></button
-            ></span>
+            <div class="flex-grow"></div>
           </div>
-        </div>
-      </nav>
-
-      <div class="lg:hidden">
-        <div
-          id="mobile-sidebar"
-          class="fixed top-0 z-[100] overflow-hidden h-screen w-full bg-black bg-opacity-50"
-        >
-          <div class="flex w-full h-full">
-            <div
-              class="h-full w-80 bg-white px-3 pt-3 pb-5 flex flex-col gap-5 overflow-y-auto"
-            >
-              <div
-                class="pb-2 flex justify-between items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50"
-              >
-                <div class="flex gap-3">
-                  <div class="h-20 w-20">
-                    <img
-                      src="/public/images/Evention_LOGO.png"
-                      alt=""
-                      class="h-full w-full object-fit"
-                    />
-                  </div>
-                  <div class="h-20 w-20">
-                    <img
-                      src="/public/images/sbn2024.png"
-                      alt=""
-                      class="h-full w-full object-fit"
-                    />
-                  </div>
-                </div>
-                <span id="close-mobile-nav" class="overflow-hidden">
-                  <button
-                    class="border-none bg-white cursor-pointer text-xl text-red-500"
-                  >
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
-                </span>
-              </div>
-              <div class="flex flex-col gap-5 justify-between">
-                <ul class="list-none text-sm flex flex-col lg:flex-row gap-5">
-                  <li>
-                    <a href="/src/index.html" class="font-jaro">Home</a>
-                  </li>
-                  <li>
-                    <a href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
-                  </li>
-                  <li>
-                    <a href="/src/spelling-bee-nepal.html" class="font-jaro">Spelling Bee Nepal</a>
-                  </li>
-                  <li>
-                    <a href="/src/rules-regulations.html" class="font-jaro">Rules and Regulation</a>
-                  </li>
-                  <li>
-                    <a href="/src/upcoming-events.html" class="font-jaro">Upcoming Events</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="flex-grow"></div>
-            </div>
-            <div id="mobile-sidebar-right" class="flex-grow"></div>
-          </div>
+          <div id="mobile-sidebar-right" class="flex-grow"></div>
         </div>
       </div>
-    <div class="text-[#0C2626] flex-grow h-full">
+    </div>
+
+    <div class="bg-neutral-800 text-white flex-grow h-full">
       <div class="pt-5 md:pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36">
         <div>
           <div
@@ -324,10 +340,10 @@
                   @click="handleClick()"
                   class="text-base text-primary flex flex-row justify-between items-center gap-5 font-semibold p-3 cursor-pointer"
                 >
-                  <span>${faq.question}</span>
+                  <span class="text-neutral-800">${faq.question}</span>
                   <svg
             :class="handleRotate()"
-            class="fill-current text-primary h-6 w-6 transform transition-transform duration-500 shrink-0"
+            class="fill-current text-neutral-800 h-6 w-6 transform transition-transform duration-500 shrink-0"
             viewBox="0 0 20 20"
                   >
             <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path>
@@ -356,7 +372,7 @@
       </div>
     </div>
 
-    <footer class="relative mt-10 overflow-hidden">
+    <footer class="relative overflow-hidden">
       <div
         class="text-white bg-amber-400 w-full pt-10 pb-5 px-5 sm:px-10 lg:px-20 2xl:px-36"
       >
