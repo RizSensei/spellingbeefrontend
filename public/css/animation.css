@@ -1,0 +1,10 @@
+*{
+  scroll-behavior: smooth;
+}
+
+.left-item {
+  transform: translateX(-100%); /* Start off-screen to the left */
+}
+.right-item {
+  transform: translateX(100%); /* Start off-screen to the right */
+}

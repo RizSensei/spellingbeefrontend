@@ -6,9 +6,9 @@
     <title>SpellingBee</title>
     <link rel="stylesheet" href="/public/css/output.css" />
     <link rel="stylesheet" href="/public/css/style.css" />
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="/public/css/animation.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <link
       rel="stylesheet"
@@ -23,13 +23,14 @@
 
     <script src="/public/js/owl.js" defer></script>
     <script src="/public/js/script.js" defer></script>
+    <script src="/public/js/animation.js" defer></script>
     <script src="/public/js/alpine.js" defer></script>
 
-        <!-- alpine sources  -->
-        <script
-        defer
-        src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"
-      ></script>
+    <!-- alpine sources -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"
+    ></script>
 
     <!-- font awesome icon package -->
     <script
@@ -38,55 +39,61 @@
     ></script>
     <!-- font awesome icon package -->
   </head>
-  <body class="h-full w-full flex flex-col min-h-screen">
+  <body
+    class="relative h-full w-full flex flex-col min-h-screen bg-neutral-900"
+  >
     <div>
-      <nav id="navbar" class="bg-bee-gradient py-3 px-3 lg:px-10">
+      <div class="h-24 w-full"></div>
+      <nav
+        id="navbar"
+        class="fixed z-[999] w-full top-0 bg-bee-gradient py-3 px-3 lg:px-10"
+      >
         <div class="flex justify-between items-center">
           <div class="flex gap-3">
             <div class="h-20 w-20">
               <img
-                src="/public/images/Evention_LOGO.png"
+                src="../public/images/Evention_LOGO.png"
                 alt=""
                 class="h-full w-full object-fit"
               />
             </div>
             <div class="h-20 w-20">
               <img
-                src="/public/images/sbn2024.png"
+                src="../public/images/sbn2024.png"
                 alt=""
                 class="h-full w-full object-scale-down"
               />
             </div>
           </div>
-          <div class="flex items-center gap-5">
+          <div class="relative flex items-center gap-5">
             <div class="hidden lg:inline-block gap-2">
-              <ul class="list-none text-sm flex flex-col lg:flex-row gap-5">
+              <ul
+                class="list-none text-sm flex flex-col lg:flex-row font-bold gap-5"
+              >
                 <li>
-                  <a href="/src/index.html" class="font-jaro">Home</a>
+                  <a href="/src/index.html">Home</a>
                 </li>
                 <li>
-                  <a rel="noopener" href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
-                </li>
-                <li>
-                  <a href="/src/spelling-bee-nepal.html" class="font-jaro"
-                    >Spelling Bee Nepal</a
+                  <a href="https://evention.top/spellingbee" target="_blank"
+                    >Evention Master</a
                   >
                 </li>
                 <li>
-                  <a href="/src/rules-regulations.html" class="font-jaro"
-                    >Rules and Regulation</a
-                  >
+                  <a href="/src/spelling-bee-nepal.html">Spelling Bee Nepal</a>
                 </li>
                 <li>
-                  <a href="/src/upcoming-events.html" class="font-jaro"
-                    >Upcoming Events</a
-                  >
+                  <a href="/src/rules-regulations.html">Rules and Regulation</a>
+                </li>
+                <li>
+                  <a href="/src/upcoming-events.html">Upcoming Events</a>
+                </li>
+                <li>
+                  <button id="payment-button">Payment</button>
                 </li>
               </ul>
             </div>
-
             <span class="lg:hidden">
-              <button title="open-mobile-nav"
+              <button
                 id="open-mobile-nav"
                 class="bg-transparent text-white cursor-pointer"
               >
@@ -112,7 +119,7 @@
       <div class="lg:hidden">
         <div
           id="mobile-sidebar"
-          class="fixed top-0 z-[100] overflow-hidden h-screen w-full bg-black bg-opacity-50"
+          class="fixed top-0 z-[9999] overflow-hidden h-screen w-full bg-black bg-opacity-50"
         >
           <div class="flex w-full h-full">
             <div
@@ -124,43 +131,57 @@
                 <div class="flex gap-3">
                   <div class="h-20 w-20">
                     <img
-                      src="/public/images/Evention_LOGO.png"
+                      src="../public/images/Evention_LOGO.png"
                       alt=""
                       class="h-full w-full object-fit"
                     />
                   </div>
                   <div class="h-20 w-20">
                     <img
-                      src="/public/images/sbn2024.png"
+                      src="../public/images/sbn2024.png"
                       alt=""
                       class="h-full w-full object-fit"
                     />
                   </div>
                 </div>
                 <span id="close-mobile-nav" class="overflow-hidden">
-                  <button title="Twitter"
+                  <button
                     class="border-none bg-white cursor-pointer text-xl text-red-500"
                   >
-                  <i class="fa-solid fa-xmark"></i>
-                </button>
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
                 </span>
               </div>
               <div class="flex flex-col gap-5 justify-between">
-                <ul class="list-none text-sm flex flex-col lg:flex-row gap-5">
-                  <li>
-                    <a href="/src/index.html" class="font-jaro">Home</a>
+                <ul class="list-none text-sm flex flex-col font-semibold lg:flex-row gap-0">
+                  <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                    <a href="/src/index.html">Home</a>
                   </li>
-                  <li>
-                    <a rel="noopener" href="https://evention.top/spellingbee" target="_blank" class="font-jaro">Evention Master</a>
+                  <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                    <a
+                      href="https://evention.top/spellingbee"
+                      target="_blank"
+                     
+                      >Evention Master</a
+                    >
                   </li>
-                  <li>
-                    <a href="/src/spelling-bee-nepal.html" class="font-jaro">Spelling Bee Nepal</a>
+                  <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                    <a href="/src/spelling-bee-nepal.html"
+                      >Spelling Bee Nepal</a
+                    >
                   </li>
-                  <li>
-                    <a href="/src/rules-regulations.html" class="font-jaro">Rules and Regulation</a>
+                  <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                    <a href="/src/rules-regulations.html"
+                      >Rules and Regulation</a
+                    >
                   </li>
-                  <li>
-                    <a href="/src/upcoming-events.html" class="font-jaro">Upcoming Events</a>
+                  <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                    <a href="/src/upcoming-events.html"
+                      >Upcoming Events</a
+                    >
+                  </li>
+                  <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                    <button id="payment-button-mb">Payment</button>
                   </li>
                 </ul>
               </div>
@@ -171,94 +192,206 @@
         </div>
       </div>
 
-      <div class="border-x-0 border-t-0 border-b border-white w-full h-[75vh] md:h-[65vh] 2xl:h-[75vh] bg-bee-gradient flex flex-col z-20">
+      <div
+        class="border-x-0 border-t-0 border-b border-white w-full h-[90vh] 2xl:h-[75vh] bg-bee-gradient flex flex-col z-20"
+      >
         <div
-          class="relative flex-grow overflow-hidden pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36"
+          class="relative flex-grow overflow-hidden pt-5 md:pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36"
         >
-          <div class="z-50">
-            <div class="mt-0 2xl:mt-10 flex flex-col gap-3 max-w-2xl">
+          <div class="z-50 flex justify-between gap-2">
+            <div
+              class="mt-0 2xl:mt-5 flex flex-col gap-1 max-w-2xl 2xl:max-w-full"
+            >
               <h1
-                class="z-20 text-5xl md:text-6xl xl:text-7xl text-white font-aclonica overflow-hidden"
+                class="z-20 text-4xl sm:text-6xl xl:text-[4rem] 2xl:text-[7rem] text-gray-100 font-aclonica overflow-hidden"
               >
                 SPELLING BEE CHAMPIONSHIP
               </h1>
-              <p class="font-semibold text-neutral-800 z-20">
+              <div class="my-1 flex gap-2">
+                <div class="bg-neutral-900 py-2 px-5 text-white font-aclonica">
+                  <span>26<sup>th</sup>&nbsp;Dec</span>&nbsp;-&nbsp;<span
+                    >29<sup>th</sup>&nbsp;Dec</span
+                  >
+                </div>
+                <div class="bg-neutral-900 py-2 px-5 text-white font-aclonica">
+                  <span>Kathmandu</span>
+                </div>
+              </div>
+              <p
+                class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl"
+              >
                 An exciting competition where participants can showcase their
-                spelling skills and vocabulary knowledge encouraging learning,
-                sharpening language abilities, and promoting friendly competition
-                in a fun and educational environment.
+                spelling skills and vocabulary knowledge encouraging learning
+                and sharpening language abilities
               </p>
-              <button class="w-max px-5 py-2 bg-black text-white">
+              <div class="mt-2 flex flex-wrap gap-2 overflow-hidden">
+                <div
+                  class="h-max rounded-md bg-neutral-900 flex flex-col items-center justify-center px-6 2xl:px-8 py-2 2xl:py-5 overflow-hidden"
+                >
+                  <h3 class="font-aclonica text-white text-sm sm:text-base">
+                    1st Slab
+                  </h3>
+                  <h1
+                    class="font-bold text-3xl sm:text-4xl 2xl:text-6xl overflow-hidden text-[#FFD50D]"
+                  >
+                    <span class="text-2xl 2xl:text-3xl text-white"
+                      >Rs.&nbsp;</span
+                    >300<span class="text-2xl 2xl:text-3xl text-white"
+                      >.00</span
+                    >
+                  </h1>
+                  <div
+                    class="mt-2 w-full bg-white p-1 text-center rounded-md text-neutral-800"
+                  >
+                    Till 12th Nov
+                  </div>
+                </div>
+                <div
+                  class="h-max rounded-md bg-neutral-900 flex flex-col items-center justify-center px-6 2xl:px-8 py-2 2xl:py-5 overflow-hidden"
+                >
+                  <h3 class="font-aclonica text-white text-sm sm:text-base">
+                    2nd Slab
+                  </h3>
+                  <h1
+                    class="font-bold text-3xl sm:text-4xl 2xl:text-6xl overflow-hidden text-[#FFD50D]"
+                  >
+                    <span class="text-2xl 2xl:text-3xl text-white"
+                      >Rs.&nbsp;</span
+                    >500<span class="text-2xl 2xl:text-3xl text-white"
+                      >.00</span
+                    >
+                  </h1>
+                  <div
+                    class="mt-2 w-full bg-white p-1 text-center rounded-md text-neutral-800"
+                  >
+                    Till 12th Nov
+                  </div>
+                </div>
+                <div
+                  class="h-max rounded-md bg-neutral-900 flex flex-col items-center justify-center px-6 2xl:px-8 py-2 2xl:py-5 overflow-hidden"
+                >
+                  <h3 class="font-aclonica text-white text-sm sm:text-base">
+                    3rd Slab
+                  </h3>
+                  <h1
+                    class="font-bold text-3xl sm:text-4xl 2xl:text-6xl overflow-hidden text-[#FFD50D]"
+                  >
+                    <span class="text-2xl 2xl:text-3xl text-white"
+                      >Rs.&nbsp;</span
+                    >700<span class="text-2xl 2xl:text-3xl text-white"
+                      >.00</span
+                    >
+                  </h1>
+                  <div
+                    class="mt-2 w-full bg-white p-1 text-center rounded-md text-neutral-800"
+                  >
+                    Till 12th Nov
+                  </div>
+                </div>
+              </div>
+              <button
+                class="mt-5 w-max px-5 py-2 text-base md:text-xl 2xl:text-2xl bg-black border text-white animate-bounce"
+              >
                 Register Now
               </button>
             </div>
-          </div>
-          <div class="absolute right-0 sm:right-5 bottom-2 sm:bottom-0">
-            <img
-              src="/public/images/honeybee.png"
-              alt=""
-              class="z-10 h-72 md:h-96 xl:h-[500px] 2xl:h-[550px] mix-blend-multiply select-none"
-            />
+            <div class="hidden xl:block relative shrink-0">
+              <img
+                src="../public/images/honeybee.png"
+                alt=""
+                class="z-[9999] h-72 md:h-96 2xl:h-[500px] select-none shrink-0"
+              />
+            </div>
           </div>
         </div>
       </div>
       <div class="separator"></div>
     </div>
 
-    <div class="pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        <div data-aos="fade-right" class="flex flex-col gap-2 lg:px-10">
-          <div class="flex items-end gap-2">
-            <div class="h-40 w-64 bg-neutral-100 rounded-lg"></div>
-            <div class="h-52 w-64 bg-neutral-100 rounded-lg"></div>
+    <div class="mt-0 bg-black px-5 sm:px-10 lg:px-24 xl:px-52 py-10 sm:py-4">
+      <img
+        src="/public/images/prize-banner.png"
+        alt=""
+        class="w-full h-full object-fit"
+      />
+    </div>
+
+    <div class="pt-10 px-5 sm:px-10 lg:px-20 2xl:px-72 text-white">
+      <div class="w-full flex flex-col">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div
+            class="left-item flex flex-col justify-center items-center gap-2"
+          >
+            <div class="flex items-end gap-2">
+              <div class="h-40 w-full lg:w-64 bg-neutral-100 rounded-lg">
+                <img
+                  src="https://spellingbeeinternational.com/gallery/7.jpg"
+                  alt=""
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="h-52 w-full lg:w-64 bg-neutral-100 rounded-lg">
+                <img
+                  src="https://spellingbeeinternational.com/gallery/2.jpg"
+                  alt=""
+                  class="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <div class="h-52 w-full lg:w-64 bg-neutral-100 rounded-lg">
+                <img
+                  src="https://thespellingbeegh.org/wp-content/uploads/elementor/thumbs/IMG_2513-qpxjutz6g1864qytqak4hvrvol09ffyou8szcrs2sw.jpg"
+                  alt=""
+                  class="h-full w-full object-cover"
+                />
+              </div>
+              <div class="h-40 w-full lg:w-64 bg-neutral-100 rounded-lg">
+                <img
+                  src="https://thespellingbeegh.org/wp-content/uploads/elementor/thumbs/TSB-2023-National-Finals-Winner-2-qpxpd181jejs8p2hdgt3rd7x0i3jhtt4f8ztc7wks0.jpg"
+                  alt=""
+                  class="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
-          <div class="flex items-start gap-2">
-            <div class="h-52 w-64 bg-neutral-100 rounded-lg"></div>
-            <div class="h-40 w-64 bg-neutral-100 rounded-lg"></div>
-          </div>
-        </div>
-        <div
-          data-aos="fade-left"
-          class="flex flex-col items-center justify-center"
-        >
-          <div class="flex flex-col gap-2 lg:px-10">
-            <h1 class="text-[#FFD50D] font-extrabold text-2xl">
-              ABOUT THE BEE
-            </h1>
-            <p class="text-sm font-medium text-neutral-800">
-              The National Spelling Bee is a literacy programme that teaches
-              primary children between ages 7 and 13, how to improve their
-              spelling, increase their vocabulary, learn and understand word
-              concepts and develop English usage which will help them all their
-              lives. The National Spelling Bee is affiliated to the Scripps
-              National Spelling Bee in the USA.
-            </p>
-            <div class="mt-2 flex gap-2 font-extrabold text-sm">
-              <a
-                href="/src/spelling-bee-nepal.html"
-                class="rounded-lg px-5 py-2 bg-neutral-900 text-white"
-              >
-                Read More
-              </a>
-              <a
-                href="/src/spelling-bee-nepal.html#faq-section"
-                class="rounded-lg px-5 py-2 bg-neutral-900 text-white"
-              >
-                Read FAQs
-              </a>
+          <div class="right-item flex flex-col items-center justify-center">
+            <div class="flex flex-col gap-2 lg:px-10">
+              <h1 class="text-[#FFD50D] font-extrabold text-2xl">
+                ABOUT THE BEE
+              </h1>
+              <p class="text-sm font-medium text-white">
+                The National Spelling Bee is a literacy programme that teaches
+                primary children between ages 7 and 13, how to improve their
+                spelling, increase their vocabulary, learn and understand word
+                concepts and develop English usage which will help them all
+                their lives. The National Spelling Bee is affiliated to the
+                Scripps National Spelling Bee in the USA.
+              </p>
+              <div class="mt-2 flex gap-2 font-extrabold text-sm">
+                <a
+                  href="/src/spelling-bee-nepal.html"
+                  class="rounded-lg px-5 py-2 bg-neutral-800 text-white"
+                >
+                  Read More
+                </a>
+                <a
+                  href="/src/spelling-bee-nepal.html#faq-section"
+                  class="rounded-lg px-5 py-2 bg-neutral-800 text-white"
+                >
+                  Read FAQs
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="mt-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          <div data-aos="fade-right" class="order-2 lg:order-1">
+        <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <div class="left-item order-2 lg:order-1">
             <h1 class="text-[#FFD50D] font-extrabold text-2xl clear-left">
               About Evention Master
             </h1>
             <p
-              class="mt-3 max-w-full lg:max-w-xl text-sm font-medium text-justify text-neutral-800 clear-left"
+              class="mt-3 max-w-full lg:max-w-xl text-sm font-medium text-justify text-white clear-left"
             >
               Evention Master stands out as the epitome of creativity,
               innovation, and inventiveness in the realm of event management.
@@ -267,14 +400,12 @@
               displayed through each event we undertake, where ordinary venues
               are transformed into extraordinary spaces that reflect a theme
               with unparalleled artistry.<br /><br />
-
               The innovative strategies of Evention Master are what makes it
               stand out. We constantly push the boundaries of event management
               by introducing cutting-edge ideas and technologies, making then a
               unique approach. We add creative components to events that
               fascinate guests and enhance the overall experience, such as using
               virtual reality or utilizing the newest trends.<br /><br />
-
               Inventiveness is embedded in the DNA of Evention Master. We don’t
               just follow trends; we set them. We are dedicated to providing our
               clients with innovative and creative event solutions, and we do
@@ -285,24 +416,24 @@
             </p>
           </div>
           <div
-            data-aos="fade-left"
-            class="flex flex-col items-center justify-center order-1 lg:order-2"
+            class="right-item flex flex-col items-center justify-center order-1 lg:order-2"
           >
-            <img src="/public/images/evention-master.png" alt="" class="pl-5" />
+            <img
+              src="../public/images/evention-master.png"
+              alt=""
+              class="pl-5"
+            />
           </div>
         </div>
       </div>
     </div>
 
-    <div class="mt-10">
-      <div
-        class="p-10 bg-gradient-to-r from-[#F1C820] via-[#FFD50D] to-[#F1C820] flex flex-col"
-      >
+    <!-- <div class="p-10 py-10  flex flex-col">
         <div class="py-5 px-10 rounded-lg bg-white">
           <div class="flex flex-col sm:flex-row justify-between items-center">
             <div class="flex gap-3 items-center">
               <img
-                src="/public/images/honeybee.png"
+                src="../public/images/honeybee.png"
                 alt=""
                 class="h-20 sm:h-24 shrink-0"
               />
@@ -310,10 +441,10 @@
                 Winners of Spelling Bee Nepal 2023
               </h1>
             </div>
-            <select name="year" title="select-year"
+            <select
               class="w-max form-select block mt-1 rounded-md shadow-sm border border-[#FFD50D] text-neutral-700"
             >
-              <option selected>Choose Year</option>
+              <option disabled selected>Choose Year</option>
               <option>2024</option>
               <option>2023</option>
               <option>2022</option>
@@ -362,46 +493,46 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
 
     <div class="mt-10">
       <div class="px-5 sm:px-10 lg:px-20 2xl:px-36">
-        <div
-          class="uppercase text-center text-[#FFD50D] font-extrabold text-2xl"
-        >
-          Our Sponsors
-        </div>
-        <div class="mt-5">
           <div
-            id="sponsors-container"
-            class="owl-carousel owl-carousel-sponsors owl-theme z-10"
+            class="w-full uppercase text-center text-[#FFD50D] font-extrabold text-2xl flex justify-center items-center gap-1"
           >
-            <script>
-              const sponsors_list = [
-                "/public/images/sponsors/sponsor-1.png",
-                "/public/images/sponsors/sponsor-2.png",
-                "/public/images/sponsors/sponsor-3.png",
-                "/public/images/sponsors/sponsor-4.png",
-                "/public/images/sponsors/sponsor-5.png",
-                "/public/images/sponsors/sponsor-1.png",
-                "/public/images/sponsors/sponsor-2.png",
-                "/public/images/sponsors/sponsor-3.png",
-                "/public/images/sponsors/sponsor-4.png",
-                "/public/images/sponsors/sponsor-5.png",
-              ];
-              const sponsors = sponsors_list
-                .map(
-                  (sponsor) => `
-              <div class="h-20 w-32">
-              <img src="${sponsor}" alt="" class="h-full w-full object-fit">
+            <hr class="w-12 h-0.5 bg-[#FFD50D] border-0" />
+            <span>Our Sponsors</span>
+            <hr class="w-12 h-0.5 bg-[#FFD50D] border-0" />
+          </div>
+        <div class="pt-5">
+          <div class="flex justify-center items-center">
+            <div id="sponsors-container" class="mt-5 flex flex-wrap justify-center gap-5">
+              <script>
+                const sponsors_list = [
+                  "../public/images/sponsors/sponsor-1.png",
+                  "../public/images/sponsors/sponsor-2.png",
+                  "../public/images/sponsors/sponsor-3.png",
+                  "../public/images/sponsors/sponsor-4.png",
+                  "../public/images/sponsors/sponsor-5.png",
+                  "../public/images/sponsors/sponsor-1.png",
+                  "../public/images/sponsors/sponsor-2.png",
+                  // "../public/images/sponsors/sponsor-3.png",
+                  // "../public/images/sponsors/sponsor-4.png",
+                  // "../public/images/sponsors/sponsor-5.png",
+                ];
+                const sponsors = sponsors_list
+                  .map(
+                    (sponsor) => `
+            <div class="h-20 w-32">
+            <img src="${sponsor}" alt="" class="h-full w-full object-fit">
             </div>
-              `
-                )
-                .join("");
-              document.getElementById("sponsors-container").innerHTML =
-                sponsors;
-            </script>
+            `
+                  )
+                  .join("");
+                document.getElementById("sponsors-container").innerHTML =
+                  sponsors;
+              </script>
+            </div>
           </div>
         </div>
       </div>
@@ -409,9 +540,9 @@
 
     <footer class="relative mt-10 overflow-hidden">
       <div
-        class="text-white bg-amber-400 w-full pt-10 pb-5 px-5 sm:px-10 lg:px-20 2xl:px-36"
+        class="text-neutral-900 bg-amber-400 w-full pt-10 pb-5 px-5 sm:px-10 lg:px-20 2xl:px-36"
       >
-        <div class="border-2 border-x-0 border-t-0 pb-5">
+        <div class="border-2 border-x-0 border-t-0 border-neutral-900 pb-5">
           <h1 class="text-xl font-extrabold">Connect With Us</h1>
           <div class="mt-5 flex flex-col font-semibold gap-3">
             <div class="flex items-center gap-2">
@@ -480,7 +611,7 @@
         <div class="hidden lg:inline-block overflow-hidden">
           <div class="absolute top-0 bottom-0 right-0 overflow-hidden">
             <img
-              src="/public/images/honeycomb.png"
+              src="../public/images/honeycomb.png"
               alt=""
               class="mix-blend-soft-light"
             />
@@ -488,14 +619,31 @@
         </div>
       </div>
     </footer>
-  </body>
 
-  <script>
-    window.onload = function() {
-      AOS.init({
-        mirror: true
-      });
-    };
-  </script>
-  
+    <div id="evention-payment" class="hide">
+      <div
+        class="z-[9999] fixed h-screen w-screen overflow-hidden bg-neutral-900 inset-0"
+      >
+        <div class="grid place-items-center h-full w-full">
+          <div class="flex flex-col items-center">
+            <div class="h-52 aspect-square bg-white p-3 rounded-lg">
+              <img
+                src="/public/images/evention-qr.jpeg"
+                alt="Evention Payment QR"
+                class="h-full w-full object-scale-down"
+              />
+            </div>
+            <div class="mt-3 overflow-hidden">
+              <button
+                id="close-payment"
+                class="bg-neutral-800 text-white px-5 py-2 rounded-md hover:scale-105 ease-in-out transform duration-150"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
